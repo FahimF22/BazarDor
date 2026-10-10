@@ -28,3 +28,13 @@
 npm install
 cp .env.example .env.local
 npm run dev
+```
+
+Open http://localhost:3000
+
+## 📬 Submission
+
+- **Live Link:**
+- **GitHub Repository:**
+
+Made for Programming Hero Assignment B14-A7

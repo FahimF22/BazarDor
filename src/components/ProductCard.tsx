@@ -4,11 +4,7 @@ import Link from "next/link";
 import type { Product } from "@/types";
 import { formatPrice, formatPct, unitLabel } from "@/lib/utils";
 
-interface Props {
-  product: Product;
-}
-
-export default function ProductCard({ product }: Props) {
+export default function ProductCard({ product }: { product: Product }) {
   const { change } = product;
   const isUp = change.dir === "up";
   const isDown = change.dir === "down";
@@ -16,7 +12,7 @@ export default function ProductCard({ product }: Props) {
   return (
     <Link
       href={`/product/${product.slug}`}
-      className="card bg-base-100 shadow-md hover:shadow-xl transition-all border border-base-200 hover:border-primary/30"
+      className="card bg-base-100 shadow-md hover:shadow-xl transition-all border border-base-200"
     >
       <div className="card-body p-4 sm:p-5 gap-2">
         <div className="text-4xl sm:text-5xl text-center mb-1">{product.image}</div>
@@ -34,11 +30,7 @@ export default function ProductCard({ product }: Props) {
             </span>
             <span
               className={`badge badge-sm font-semibold ${
-                isUp
-                  ? "badge-success text-success-content"
-                  : isDown
-                  ? "badge-error text-error-content"
-                  : "badge-ghost"
+                isUp ? "badge-success" : isDown ? "badge-error" : "badge-ghost"
               }`}
             >
               {isUp ? "▲" : isDown ? "▼" : "—"} {formatPct(change.pct)}

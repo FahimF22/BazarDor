@@ -29,8 +29,9 @@ export default function SignUpPage() {
       if (error) {
         toast.error(error.message || "রেজিস্ট্রেশন ব্যর্থ হয়েছে");
       } else {
-        toast.success("সফলভাবে রেজিস্টার হয়েছে! লগইন করুন।");
-        router.push("/signin");
+        toast.success("সফলভাবে রেজিস্টার হয়েছে!");
+        router.push("/");
+        router.refresh();
       }
     } catch {
       toast.error("কিছু ভুল হয়েছে, আবার চেষ্টা করুন");

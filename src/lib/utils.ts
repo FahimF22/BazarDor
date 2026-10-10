@@ -1,4 +1,3 @@
-/** Convert English digits to Bengali digits */
 export function toBn(num: number | string): string {
   const map: Record<string, string> = {
     "0": "০", "1": "১", "2": "২", "3": "৩", "4": "৪",
@@ -12,8 +11,7 @@ export function formatPrice(price: number): string {
 }
 
 export function formatPct(pct: number): string {
-  const abs = Math.abs(pct);
-  return `${toBn(abs.toFixed(1))}%`;
+  return `${toBn(Math.abs(pct).toFixed(1))}%`;
 }
 
 export function unitLabel(unit: string): string {
@@ -34,11 +32,7 @@ export function getBanglaDate(): string {
     "জানুয়ারি", "ফেব্রুয়ারি", "মার্চ", "এপ্রিল", "মে", "জুন",
     "জুলাই", "আগস্ট", "সেপ্টেম্বর", "অক্টোবর", "নভেম্বর", "ডিসেম্বর",
   ];
-  const day = days[now.getDay()];
-  const date = toBn(now.getDate());
-  const month = months[now.getMonth()];
-  const year = toBn(now.getFullYear());
-  return `${day}, ${date} ${month} ${year}`;
+  return `${days[now.getDay()]}, ${toBn(now.getDate())} ${months[now.getMonth()]} ${toBn(now.getFullYear())}`;
 }
 
 export function sortProducts(

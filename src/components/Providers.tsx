@@ -6,13 +6,7 @@ export default function Providers({ children }: { children: React.ReactNode }) {
   return (
     <>
       {children}
-      <Toaster
-        position="top-center"
-        toastOptions={{
-          duration: 3000,
-          style: { fontFamily: "inherit" },
-        }}
-      />
+      <Toaster position="top-center" toastOptions={{ duration: 3000 }} />
     </>
   );
 }

@@ -2,18 +2,19 @@
 
 import type { SortOption } from "@/types";
 
-interface Props {
-  value: SortOption;
-  onChange: (v: SortOption) => void;
-}
-
 const options: { value: SortOption; label: string }[] = [
   { value: "default", label: "ডিফল্ট" },
   { value: "price-asc", label: "দাম: কম থেকে বেশি" },
   { value: "price-desc", label: "দাম: বেশি থেকে কম" },
 ];
 
-export default function SortDropdown({ value, onChange }: Props) {
+export default function SortDropdown({
+  value,
+  onChange,
+}: {
+  value: SortOption;
+  onChange: (v: SortOption) => void;
+}) {
   return (
     <div className="dropdown dropdown-end">
       <label tabIndex={0} className="btn btn-outline btn-sm gap-1">

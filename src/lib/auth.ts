@@ -1,10 +1,8 @@
 import { betterAuth } from "better-auth";
+
+// Use node:sqlite (built into Node.js 22.5+) — no native compile needed on Windows
 import { DatabaseSync } from "node:sqlite";
 
-/**
- * BetterAuth with Node.js built-in SQLite (no native compile needed)
- * Works on Windows without Visual Studio C++ tools.
- */
 export const auth = betterAuth({
   database: new DatabaseSync("bazardor.db"),
   emailAndPassword: {
@@ -23,7 +21,7 @@ export const auth = betterAuth({
     },
   },
   session: {
-    expiresIn: 60 * 60 * 24 * 7, // 7 days
+    expiresIn: 60 * 60 * 24 * 7,
     updateAge: 60 * 60 * 24,
   },
 });

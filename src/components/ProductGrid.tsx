@@ -6,23 +6,20 @@ import ProductCard from "./ProductCard";
 import SortDropdown from "./SortDropdown";
 import { sortProducts } from "@/lib/utils";
 
-interface Props {
-  products: Product[];
-  showSort?: boolean;
-  title?: string;
-  subtitle?: string;
-  id?: string;
-}
-
 export default function ProductGrid({
   products,
   showSort = false,
   title,
   subtitle,
   id,
-}: Props) {
+}: {
+  products: Product[];
+  showSort?: boolean;
+  title?: string;
+  subtitle?: string;
+  id?: string;
+}) {
   const [sort, setSort] = useState<SortOption>("default");
-
   const sorted = useMemo(() => sortProducts(products, sort), [products, sort]);
 
   return (

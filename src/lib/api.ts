@@ -5,9 +5,7 @@ const BASE =
   "https://openapi.programming-hero.com/api/bazardor";
 
 async function fetchJson<T>(path: string): Promise<T> {
-  const res = await fetch(`${BASE}${path}`, {
-    next: { revalidate: 60 },
-  });
+  const res = await fetch(`${BASE}${path}`, { next: { revalidate: 60 } });
   if (!res.ok) throw new Error(`API error: ${res.status}`);
   return res.json();
 }

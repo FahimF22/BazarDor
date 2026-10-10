@@ -23,9 +23,7 @@ export default function Navbar({ categories }: Props) {
     router.refresh();
   };
 
-  const isActive = (slug: string) =>
-    pathname === `/category/${slug}` ||
-    (pathname.startsWith("/category/") && pathname.includes(slug));
+  const isActive = (slug: string) => pathname === `/category/${slug}`;
 
   return (
     <header className="sticky top-0 z-50 bg-base-100 shadow-sm">
@@ -34,9 +32,7 @@ export default function Navbar({ categories }: Props) {
           <Link href="/" className="flex items-center gap-2">
             <span className="text-2xl">🛒</span>
             <div className="flex flex-col leading-tight">
-              <span className="font-bold text-lg sm:text-xl text-primary">
-                বাজার দর
-              </span>
+              <span className="font-bold text-lg sm:text-xl text-primary">বাজার দর</span>
               <span className="text-[10px] sm:text-xs text-base-content/60">
                 {getBanglaDate()}
               </span>
@@ -50,24 +46,16 @@ export default function Navbar({ categories }: Props) {
           ) : session?.user ? (
             <>
               <Link href="/profile" className="btn btn-ghost btn-sm sm:btn-md gap-1">
-                <span className="hidden sm:inline">👤</span>
-                {session.user.name || "প্রোফাইল"}
+                👤 {session.user.name || "প্রোফাইল"}
               </Link>
-              <button
-                onClick={handleSignOut}
-                className="btn btn-outline btn-error btn-sm sm:btn-md"
-              >
+              <button onClick={handleSignOut} className="btn btn-outline btn-error btn-sm sm:btn-md">
                 সাইন আউট
               </button>
             </>
           ) : (
             <>
-              <Link href="/signin" className="btn btn-ghost btn-sm sm:btn-md">
-                সাইন ইন
-              </Link>
-              <Link href="/signup" className="btn btn-primary btn-sm sm:btn-md">
-                সাইন আপ
-              </Link>
+              <Link href="/signin" className="btn btn-ghost btn-sm sm:btn-md">সাইন ইন</Link>
+              <Link href="/signup" className="btn btn-primary btn-sm sm:btn-md">সাইন আপ</Link>
             </>
           )}
         </div>
@@ -79,9 +67,7 @@ export default function Navbar({ categories }: Props) {
             <li>
               <Link
                 href="/"
-                className={`btn btn-sm btn-ghost ${
-                  pathname === "/" ? "btn-active bg-primary/10 text-primary" : ""
-                }`}
+                className={`btn btn-sm btn-ghost ${pathname === "/" ? "btn-active bg-primary/10 text-primary" : ""}`}
               >
                 🏠 সব
               </Link>
@@ -90,11 +76,7 @@ export default function Navbar({ categories }: Props) {
               <li key={cat.slug}>
                 <Link
                   href={`/category/${cat.slug}`}
-                  className={`btn btn-sm btn-ghost ${
-                    isActive(cat.slug)
-                      ? "btn-active bg-primary/10 text-primary font-semibold"
-                      : ""
-                  }`}
+                  className={`btn btn-sm btn-ghost ${isActive(cat.slug) ? "btn-active bg-primary/10 text-primary font-semibold" : ""}`}
                 >
                   {cat.icon} {cat.nameBn}
                 </Link>
