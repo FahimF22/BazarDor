@@ -24,6 +24,10 @@ export const auth = betterAuth({
     expiresIn: 60 * 60 * 24 * 7,
     updateAge: 60 * 60 * 24,
   },
+  trustedOrigins: [
+    "http://localhost:3000",
+    "https://a6-bazar-dor.vercel.app",
+  ],
 });
 
 export type Session = typeof auth.$Infer.Session;
