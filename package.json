@@ -14,15 +14,13 @@
     "react-dom": "19.3.0",
     "better-auth": "^1.2.8",
     "react-hot-toast": "^2.5.2",
-    "daisyui": "^5.0.35",
-    "better-sqlite3": "^11.9.1"
+    "daisyui": "^5.0.35"
   },
   "devDependencies": {
     "@tailwindcss/turbopack": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
-    "@types/better-sqlite3": "^7.6.12",
     "eslint": "^9",
     "eslint-config-next": "16.4.0",
     "tailwindcss": "^4",
