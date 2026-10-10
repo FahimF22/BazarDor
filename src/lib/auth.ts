@@ -1,10 +1,11 @@
 import { betterAuth } from "better-auth";
 
-// Use node:sqlite (built into Node.js 22.5+) — no native compile needed on Windows
-import { DatabaseSync } from "node:sqlite";
-
 export const auth = betterAuth({
-  database: new DatabaseSync("bazardor.db"),
+  database: {
+    provider: "sqlite",
+    url: process.env.TURSO_DATABASE_URL!,
+    authToken: process.env.TURSO_AUTH_TOKEN,
+  },
   emailAndPassword: {
     enabled: true,
     requireEmailVerification: false,
