@@ -1,11 +1,10 @@
 import { betterAuth } from "better-auth";
+import { Pool } from "pg";
 
 export const auth = betterAuth({
-  database: {
-    provider: "sqlite",
-    url: process.env.TURSO_DATABASE_URL!,
-    authToken: process.env.TURSO_AUTH_TOKEN,
-  },
+  database: new Pool({
+    connectionString: process.env.DATABASE_URL,
+  }),
   emailAndPassword: {
     enabled: true,
     requireEmailVerification: false,
